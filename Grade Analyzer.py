@@ -13,15 +13,15 @@ bDrop_Lowest = input(f"Do you wish to drop the lowest grade? Enter Y or N: ")
 # Check for negative test scores
 if iGrade_1 < 0 or iGrade_2 < 0 or iGrade_3 < 0 or iGrade_4 < 0:
     print("Test scores must be greater than 0.")
-    raise systenexit
+    raise SystemExit
 
 # Check if user entered correct value to drop lowest grade
-if bDrop_Lowest != 'Y' and bDrop_Lowest != 'N':
+if bDrop_Lowest != "Y" and bDrop_Lowest != "N":
     print("Enter Y or N to Drop the Lowest Grade.")
-    raise systenexit
+    raise SystemExit
 
 # Calculate average
-if bDrop_Lowest == 'Y':
+if bDrop_Lowest == "Y":
     if iGrade_1 <= iGrade_2 and iGrade_1 <= iGrade_3 and iGrade_1 <= iGrade_4:
         fAverage = (iGrade_2 + iGrade_3 + iGrade_4) / 3.0
     elif iGrade_2 <= iGrade_1 and iGrade_2 <= iGrade_3 and iGrade_2 <= iGrade_4:
@@ -35,31 +35,31 @@ else:
 
 # Determine letter grade
 if fAverage >= 97.0:
-    sGrade = 'A+'
+    sGrade = "A+"
 elif fAverage >= 94.0:
-    sGrade = 'A'
+    sGrade = "A"
 elif fAverage >= 90.0:
-    sGrade = 'A-'
+    sGrade = "A-"
 elif fAverage >= 87.0:
-    sGrade = 'B+'
+    sGrade = "B+"
 elif fAverage >= 84.0:
-    sGrade = 'B'
+    sGrade = "B"
 elif fAverage >= 80.0:
-    sGrade = 'B-'
+    sGrade = "B-"
 elif fAverage >= 77.0:
-    sGrade = 'C+'
+    sGrade = "C+"
 elif fAverage >= 74.0:
-    sGrade = 'C'
+    sGrade = "C"
 elif fAverage >= 70.0:
-    sGrade = 'C-'
+    sGrade = "C-"
 elif fAverage >= 67.0:
-    sGrade = 'D+'
+    sGrade = "D+"
 elif fAverage >= 64.0:
-    sGrade = 'D'
+    sGrade = "D"
 elif fAverage >= 60.0:
-    sGrade = 'D-'
+    sGrade = "D-"
 else:
-    sGrade = 'F'
+    sGrade = "F"
 
 # Output results
 print(f"{sName} test average is: {fAverage:.1f}")
