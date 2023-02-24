@@ -8,7 +8,7 @@ fYears = float(input("For how many years will the account earn interest? "))
 fFINAL = fPrincipal * (((1 + (fRate/fYears) / 100) ** (fYears*fTimes)))
 
 #Print the result
-print(f"At the end of {int(fTimes)}, years you will have ${fFINAL:.2f}")
+print(f"At the end of {int(fTimes)}, years you will have ${fFINAL:,.2f}")
 
 
 
