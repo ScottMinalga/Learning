@@ -23,4 +23,3 @@ elif fRESULT <= 29.90:
 elif fRESULT >= 29.91:
     print(f"{sName} BMI is: {fRESULT:.2f}")
     print(f"BMI finding is the subject is: Obese")
-

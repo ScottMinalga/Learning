@@ -23,13 +23,14 @@ if bDrop_Lowest != "Y" and bDrop_Lowest != "N":
 # Calculate average
 if bDrop_Lowest == "Y":
     if iGrade_1 <= iGrade_2 and iGrade_1 <= iGrade_3 and iGrade_1 <= iGrade_4:
-        fAverage = (iGrade_2 + iGrade_3 + iGrade_4) / 3.0
-    elif iGrade_2 <= iGrade_1 and iGrade_2 <= iGrade_3 and iGrade_2 <= iGrade_4:
-        fAverage = (iGrade_1 + iGrade_3 + iGrade_4) / 3.0
-    elif iGrade_3 <= iGrade_1 and iGrade_3 <= iGrade_2 and iGrade_3 <= iGrade_4:
-        fAverage = (iGrade_1 + iGrade_2 + iGrade_4) / 3.0
+        fLowest = iGrade_1
+    elif iGrade_2 <= iGrade_3 and iGrade_2 <= iGrade_4:
+        fLowest = iGrade_2
+    elif iGrade_3 <= iGrade_4:
+        fLowest = iGrade_3
     else:
-        fAverage = (iGrade_1 + iGrade_2 + iGrade_3) / 3.0
+        fLowest = iGrade_4
+    (iGrade_1 + iGrade_2 + iGrade_3 + iGrade_4) - fLowest / 3.0
 else:
     fAverage = (iGrade_1 + iGrade_2 + iGrade_3 + iGrade_4) / 4.0
 
