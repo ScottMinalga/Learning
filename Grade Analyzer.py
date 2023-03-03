@@ -1,3 +1,6 @@
+#Author: Scott
+#Date:   3/1/2023
+
 # Prompt for person's name
 sName = input("Name of person that we are calculating the grades for:  ")
 
