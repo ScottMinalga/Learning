@@ -1,5 +1,5 @@
 #Author: Scott
-#Date:   3/1/2023
+#Date:   2/21/2023
 
 # Prompt for person's name
 sName = input("Name of person that we are calculating the grades for:  ")
@@ -33,7 +33,7 @@ if bDrop_Lowest == "Y":
         fLowest = iGrade_3
     else:
         fLowest = iGrade_4
-    (iGrade_1 + iGrade_2 + iGrade_3 + iGrade_4) - fLowest / 3.0
+    fAverage = (iGrade_1 + iGrade_2 + iGrade_3 + iGrade_4 - fLowest) / 3.0
 else:
     fAverage = (iGrade_1 + iGrade_2 + iGrade_3 + iGrade_4) / 4.0
 
@@ -66,5 +66,5 @@ else:
     sGrade = "F"
 
 # Output results
-print(f"{sName} test average is: {fAverage:.1f}")
-print(f"Letter grade for the test is: {sGrade}")
+print(f"""{sName} test average is: {fAverage:.1f}
+Letter grade for the test is: {sGrade}""")
