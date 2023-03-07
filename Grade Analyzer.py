@@ -1,4 +1,4 @@
-#Author: Scott
+#Author: Scott Minalga
 #Date:   2/21/2023
 
 # Prompt for person's name
