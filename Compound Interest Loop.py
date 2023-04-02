@@ -1,34 +1,49 @@
-# Prompt user for deposit amount, interest rate, number of months, and savings goal
-while True:
+# prompt user for inputs and validate input
+fDeposit = -1
+while fDeposit <= 0:
     try:
-        deposit = float(input("Enter the deposit amount: "))
-        interest_rate = float(input("Enter the annual interest rate as a percentage: "))
-        months = int(input("Enter the number of months: "))
-        goal = float(input("Enter the savings goal: "))
-        if deposit <= 0 or interest_rate <= 0 or months <= 0:
-            print("Error: Deposit, interest rate, and number of months must be positive and non-zero values.")
-            continue
-        if goal < 0:
-            print("Error: Savings goal must be a non-negative value.")
-            continue
-        break
+        fDeposit = float(input("What is the Original Deposit (positive value): "))
     except ValueError:
-        print("Error: Please enter a numeric value for deposit, interest rate, months, and goal.")
+        print("Input must be a positive numeric value")
+fInterestRate = -1
+while fInterestRate <= 0:
+    try:
+        fInterestRate = float(input("What is the Interest Rate (positive value): "))
+    except ValueError:
+        print("Input must be a positive numeric value")
+iMonths = -1
+while iMonths <= 0:
+    try:
+        iMonths = int(input("What is the Number of Months (positive value): "))
+    except ValueError:
+        print("Input must be a positive numeric value")
+        continue
+    if iMonths <= 0:
+        print("Input must be a positive numeric value")
+fGoal = -1
+while fGoal < 0:
+    try:
+        fGoal = float(input("What is the Goal Amount (can enter 0 but not negative: "))
+    except ValueError:
+        print("Input must be a positive numeric value")
+        continue
+    if fGoal < 0:
+        print("Input must be a positive numeric value")
 
-# Convert interest rate to a monthly rate
-monthly_rate = interest_rate / 1200
+# convert interest rate to monthly rate
+fMonthlyRate = fInterestRate / 1200
 
-# Compute the compounded balance for each month up to the given number of months
-balance = deposit
-for i in range(months):
-    interest = balance * monthly_rate
-    balance += interest
-    print("Month {:2d}: ${:,.2f}".format(i+1, balance))
+# compute interest and account balance for each month
+fAccountBalance = fDeposit
+for i in range(1, iMonths+1):
+    fAccountBalance *= 1 + fMonthlyRate
+    print("Month {0}: ${1:,.2f}".format(i, fAccountBalance))
 
-# Compute the number of months it will take to reach the savings goal
-months_to_goal = 0
-while balance < goal:
-    interest = balance * monthly_rate
-    balance += interest
-    months_to_goal += 1
-print("It will take {} months to reach your savings goal of ${:,.2f}.".format(months_to_goal, goal))
+# determine how many months to reach goal
+iMonthsToGoal = 0
+while fAccountBalance < fGoal:
+    fAccountBalance *= 1 + fMonthlyRate
+    iMonthsToGoal += 1
+
+# output result
+print("It will take {0:,} months to reach your savings goal of ${1:,.2f}.".format(iMonthsToGoal, fGoal))
