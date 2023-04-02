@@ -1,3 +1,5 @@
+#Author: Scott Minalga
+
 # prompt user for inputs and validate input
 fDeposit = -1
 while fDeposit <= 0:
@@ -36,14 +38,16 @@ fMonthlyRate = fInterestRate / 1200
 # compute interest and account balance for each month
 fAccountBalance = fDeposit
 for i in range(1, iMonths+1):
-    fAccountBalance *= 1 + fMonthlyRate
+    fInterest = fAccountBalance * fMonthlyRate
+    fAccountBalance += fInterest
     print("Month {0}: ${1:,.2f}".format(i, fAccountBalance))
 
 # determine how many months to reach goal
 iMonthsToGoal = 0
 while fAccountBalance < fGoal:
-    fAccountBalance *= 1 + fMonthlyRate
+    fInterest = fAccountBalance * fMonthlyRate
+    fAccountBalance += fInterest
     iMonthsToGoal += 1
 
 # output result
-print("It will take {0:,} months to reach your savings goal of ${1:,.2f}.".format(iMonthsToGoal, fGoal))
+print(f"It will take: {iMonthsToGoal:,} months to reach your savings goal of ${fGoal:,.2f}.")
